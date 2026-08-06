@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eleana Africani — Analista de Datos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2A1E;
+    --paper:#EDEEDF;
+    --paper-card:#FAFAF3;
+    --green:#3F6B34;
+    --green-deep:#2A4823;
+    --gold:#B98B2A;
+    --blue:#2E4A73;
+    --muted:#6B6B5E;
+    --line: rgba(27,42,30,0.14);
+    --radius: 4px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+  .wrap{max-width:1040px; margin:0 auto; padding:0 28px;}
+  a{color:inherit;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(237,238,223,0.9);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px; max-width:1040px; margin:0 auto;
+  }
+  .brand{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem;
+    letter-spacing:0.01em;
+  }
+  .navlinks{display:flex; gap:26px; list-style:none; font-size:0.85rem; font-weight:500;}
+  .navlinks a{text-decoration:none; opacity:0.75; transition:opacity .2s;}
+  .navlinks a:hover, .navlinks a:focus-visible{opacity:1;}
+  @media (max-width:640px){ .navlinks{gap:14px; font-size:0.78rem;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:96px 0 84px;
+    border-bottom:1px solid var(--line);
+  }
+  .field-grid{
+    position:absolute; inset:0; z-index:0;
+    background-image:
+      repeating-linear-gradient(to right, rgba(63,107,52,0.08) 0 1px, transparent 1px 64px),
+      repeating-linear-gradient(to bottom, rgba(63,107,52,0.08) 0 1px, transparent 1px 64px);
+    mask-image: linear-gradient(to bottom, black, transparent 85%);
+  }
+  .scan-line{
+    position:absolute; left:0; right:0; height:2px;
+    background:linear-gradient(to right, transparent, var(--gold), transparent);
+    opacity:0.55;
+    animation: scan 7s linear infinite;
+  }
+  @keyframes scan{
+    0%{ top:0%; }
+    100%{ top:100%; }
+  }
+  .hero-inner{position:relative; z-index:1;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
+    color:var(--green-deep); text-transform:uppercase; letter-spacing:0.12em;
+    display:flex; align-items:center; gap:10px; margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:''; width:8px; height:8px; border-radius:50%;
+    background:var(--gold); display:inline-block;
+  }
+  h1{
+    font-family:'Fraunces', serif; font-weight:600;
+    font-size:clamp(2.3rem, 5.2vw, 3.9rem);
+    line-height:1.05; letter-spacing:-0.01em;
+    max-width:820px;
+  }
+  h1 em{
+    font-style:italic; font-weight:500; color:var(--green);
+  }
+  .hero p.lede{
+    margin-top:24px; max-width:560px; font-size:1.08rem; color:var(--ink);
+    opacity:0.85;
+  }
+  .hero-cta{
+    margin-top:36px; display:flex; gap:14px; flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 22px; border-radius:var(--radius);
+    font-size:0.9rem; font-weight:600; text-decoration:none;
+    border:1px solid transparent; transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--ink); color:var(--paper-card);}
+  .btn-primary:hover{box-shadow:0 6px 16px rgba(27,42,30,0.25);}
+  .btn-ghost{border-color:var(--ink); color:var(--ink);}
+
+  .hero-stats{
+    margin-top:56px; display:flex; gap:0; flex-wrap:wrap;
+    border-top:1px solid var(--line);
+  }
+  .stat{
+    flex:1; min-width:150px; padding:18px 0 0; padding-right:24px;
+    border-right:1px solid var(--line);
+  }
+  .stat:last-child{border-right:none;}
+  .stat .num{
+    font-family:'IBM Plex Mono', monospace; font-size:1.5rem; font-weight:500;
+    color:var(--green-deep);
+  }
+  .stat .label{font-size:0.78rem; color:var(--muted); margin-top:4px;}
+
+  /* ---------- SECTION SHARED ---------- */
+  section{padding:76px 0;}
+  .section-head{margin-bottom:44px; max-width:640px;}
+  .kicker{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
+    color:var(--gold); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:10px;
+  }
+  h2{
+    font-family:'Fraunces', serif; font-weight:600;
+    font-size:clamp(1.7rem, 3.4vw, 2.3rem); letter-spacing:-0.01em;
+  }
+  section#sobre-mi{border-bottom:1px solid var(--line);}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:start;}
+  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;} }
+  .about-grid p{margin-bottom:16px; color:var(--ink); opacity:0.88;}
+  .skillbox{background:var(--paper-card); border:1px solid var(--line); border-radius:var(--radius); padding:24px;}
+  .skillbox h3{font-family:'IBM Plex Mono', monospace; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--muted); margin-bottom:14px;}
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-size:0.8rem; padding:6px 12px; border-radius:20px;
+    background:rgba(63,107,52,0.09); color:var(--green-deep); border:1px solid rgba(63,107,52,0.2);
+    font-weight:500;
+  }
+
+  /* ---------- PROJECTS ---------- */
+  #proyectos{background:var(--ink); color:var(--paper);}
+  #proyectos .kicker{color:var(--gold);}
+  #proyectos .section-head p{color:rgba(237,238,223,0.7); margin-top:10px;}
+  .project{
+    display:grid; grid-template-columns:100px 1fr; gap:32px;
+    padding:36px 0; border-top:1px solid rgba(237,238,223,0.14);
+  }
+  .project:last-child{border-bottom:1px solid rgba(237,238,223,0.14);}
+  @media (max-width:700px){ .project{grid-template-columns:1fr; gap:16px;} }
+  .stamp{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+    letter-spacing:0.08em; color:var(--gold);
+    border:1px solid rgba(185,139,42,0.5); border-radius:2px;
+    padding:6px 8px; height:fit-content; text-align:center;
+    text-transform:uppercase;
+  }
+  .project h3{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.4rem; margin-bottom:10px;
+  }
+  .project p{color:rgba(237,238,223,0.78); margin-bottom:16px; max-width:600px;}
+  .project .stack{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px;}
+  .project .stack span{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+    padding:4px 9px; border:1px solid rgba(237,238,223,0.25); border-radius:2px; color:rgba(237,238,223,0.85);
+  }
+  .mini-chart{display:flex; align-items:flex-end; gap:4px; height:34px; margin-bottom:18px;}
+  .mini-chart i{
+    display:block; width:7px; background:var(--gold); border-radius:1px 1px 0 0; opacity:0.85;
+  }
+  .project a.projlink{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:0.85rem; font-weight:600; color:var(--paper);
+    text-decoration:none; border-bottom:1px solid var(--gold); padding-bottom:2px;
+  }
+  .project.progress{opacity:0.6;}
+  .project.progress .stamp{color:rgba(237,238,223,0.5); border-color:rgba(237,238,223,0.25);}
+  .project.progress p{font-style:italic;}
+
+  /* ---------- FORMACION ---------- */
+  .timeline{border-left:2px solid var(--green); margin-left:6px; padding-left:28px; display:flex; flex-direction:column; gap:22px;}
+  .tl-item .when{font-family:'IBM Plex Mono', monospace; font-size:0.75rem; color:var(--gold); margin-bottom:3px;}
+  .tl-item .what{font-weight:600;}
+  .tl-item .who{color:var(--muted); font-size:0.9rem;}
+
+  /* ---------- CONTACT ---------- */
+  #contacto{background:var(--paper-card); border-top:1px solid var(--line);}
+  .contact-inner{text-align:left; max-width:640px;}
+  .contact-links{display:flex; gap:16px; flex-wrap:wrap; margin-top:28px;}
+
+  footer{
+    padding:28px 0; text-align:center; font-size:0.78rem; color:var(--muted);
+    border-top:1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand">Eleana Africani</div>
+    <ul class="navlinks">
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#formacion">Formación</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="field-grid"></div>
+  <div class="scan-line"></div>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Analista de Datos Jr · Business Intelligence</div>
+    <h1>Convierto datos crudos del campo y del negocio en <em>decisiones claras</em>.</h1>
+    <p class="lede">Trabajo con Excel, SQL y Power BI para limpiar, modelar y visualizar información — y estoy sumando Python e IA para que esos datos se puedan consultar en lenguaje natural.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+      <a class="btn btn-ghost" href="#contacto">Contactarme</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="num">03</div><div class="label">proyectos de BI end-to-end</div></div>
+      <div class="stat"><div class="num">01</div><div class="label">asistente de IA integrado a un dashboard</div></div>
+      <div class="stat"><div class="num">2025</div><div class="label">formación en Data Analytics — Coderhouse</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre-mi">
+  <div class="wrap about-grid">
+    <div>
+      <div class="kicker">Sobre mí</div>
+      <h2 style="margin-bottom:20px;">De la limpieza de datos al dashboard que se entiende de un vistazo</h2>
+      <p>Soy Analista de Datos Jr con foco en análisis, validación y transformación de información para generar reportes e indicadores de gestión. Vengo del sector agropecuario, donde aprendí a ordenar datos que nadie había estructurado antes: planillas sueltas, fuentes que no cruzaban, información que existía pero no se podía usar.</p>
+      <p>Mi trabajo empieza mucho antes del gráfico: limpio, normalizo y modelo los datos para que el dashboard final sea confiable. Y últimamente exploro cómo la IA puede hacer que esos datos sean todavía más accesibles — por eso integré un asistente conversacional a uno de mis dashboards.</p>
+    </div>
+    <div class="skillbox">
+      <h3>Herramientas</h3>
+      <div class="chips">
+        <span class="chip">Excel avanzado</span>
+        <span class="chip">SQL</span>
+        <span class="chip">Power BI (DAX)</span>
+        <span class="chip">Power Query</span>
+        <span class="chip">Python</span>
+        <span class="chip">Streamlit</span>
+        <span class="chip">APIs de IA (Groq / Llama)</span>
+        <span class="chip">Looker Studio</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Proyectos</div>
+      <h2>Cuatro casos, tres sectores, un mismo proceso</h2>
+      <p>Cada proyecto sigue el mismo recorrido: entender el problema, limpiar y modelar los datos, y construir algo que una persona no técnica pueda usar para decidir.</p>
+    </div>
+
+    <div class="project">
+      <div class="stamp">Agro</div>
+      <div>
+        <h3>Optimización y rendimiento de la soja</h3>
+        <div class="mini-chart">
+          <i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:85%"></i><i style="height:60%"></i><i style="height:95%"></i>
+        </div>
+        <p>Proyecto de Business Intelligence para el sector agrícola: limpié, validé y normalicé datos de rendimiento productivo provenientes de distintas fuentes, construí un modelo de datos en Power BI y analicé desvíos en las variables de producción para estandarizar la información y mejorar la confiabilidad de los análisis.</p>
+        <div class="stack"><span>Excel</span><span>Power Query</span><span>Power BI</span></div>
+        <a class="projlink" href="https://drive.google.com/drive/folders/1bMo-YcQD8QaAHRa6J4oVogehz2bWhCvR?usp=drive_link" target="_blank" rel="noopener">Ver proyecto →</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="stamp">Ganadería</div>
+      <div>
+        <h3>Gestión ganadera y eficiencia reproductiva</h3>
+        <div class="mini-chart">
+          <i style="height:55%"></i><i style="height:70%"></i><i style="height:45%"></i><i style="height:90%"></i><i style="height:75%"></i><i style="height:60%"></i>
+        </div>
+        <p>Diseñé e implementé desde cero un sistema analítico para la gestión operativa y el control de stock de una explotación ganadera. Estructuré y normalicé las bases en Excel, y desarrollé un tablero en Power BI para monitorear KPIs clave — porcentaje de preñez, tasas de inseminación, nacimientos y evolución de la hacienda.</p>
+        <div class="stack"><span>Excel</span><span>Power BI</span><span>KPIs productivos</span></div>
+        <a class="projlink" href="https://drive.google.com/drive/folders/1hvGnnKnJneR25BmSh9LCBv7gpTlU7aeZ?usp=drive_link" target="_blank" rel="noopener">Ver proyecto →</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="stamp">Retail + IA</div>
+      <div>
+        <h3>Análisis comercial con asistente de IA integrado</h3>
+        <div class="mini-chart">
+          <i style="height:30%"></i><i style="height:50%"></i><i style="height:80%"></i><i style="height:65%"></i><i style="height:95%"></i><i style="height:88%"></i>
+        </div>
+        <p>Solución analítica de punta a punta sobre un escenario de simulación de retail. Limpié y migré un dataset comercial crudo a una base en SQL Server, diseñé un modelo estrella (star schema) para optimizar las consultas, y construí un tablero en Power BI con métricas DAX avanzadas para márgenes, rendimiento por región y performance de canales. Como cierre, desplegué una app en Python con Streamlit que integra un asistente virtual (API de Groq / Llama 3.1) para consultar las métricas del negocio en lenguaje natural.</p>
+        <div class="stack"><span>SQL Server</span><span>Power BI · DAX</span><span>Python</span><span>Streamlit</span><span>Groq / Llama 3.1</span></div>
+        <a class="projlink" href="https://drive.google.com/drive/folders/1xd4Zp4LvZje0I2PoktWyJpKCAHaR0fwo?usp=drive_link" target="_blank" rel="noopener">Ver proyecto →</a>
+      </div>
+    </div>
+
+    <div class="project progress">
+      <div class="stamp">En curso</div>
+      <div>
+        <h3>Cuarto proyecto — en desarrollo</h3>
+        <p>Estoy trabajando en un nuevo caso de análisis. Va a sumarse a esta sección apenas esté listo.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="formacion">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Formación</div>
+      <h2>Formación aplicada, no solo teoría</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="when">2025</div>
+        <div class="what">Data Analytics — Business Intelligence & SQL</div>
+        <div class="who">Coderhouse</div>
+      </div>
+      <div class="tl-item">
+        <div class="when">2024</div>
+        <div class="what">CRM & Gestión de Marketing</div>
+        <div class="who">Coderhouse</div>
+      </div>
+      <div class="tl-item">
+        <div class="when">2022 – 2024</div>
+        <div class="what">Especialización en Diseño Gráfico & Fundamentos Visuales</div>
+        <div class="who">Coderhouse / Edutin Academy</div>
+      </div>
+      <div class="tl-item">
+        <div class="when">2023</div>
+        <div class="what">Marketing Digital & Community Manager</div>
+        <div class="who">Coderhouse</div>
+      </div>
+      <div class="tl-item">
+        <div class="when">2007</div>
+        <div class="what">Bachiller en Ciencias Económicas y Gestión</div>
+        <div class="who">Instituto Nueva Pompeya</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap contact-inner">
+    <div class="kicker">Contacto</div>
+    <h2>Hablemos de datos</h2>
+    <p style="margin-top:16px; opacity:0.85; max-width:520px;">Estoy buscando mi primera oportunidad como Analista de Datos. Si tenés una posición abierta o simplemente querés charlar sobre alguno de estos proyectos, escribime.</p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:aficanieleana@gmail.com">Escribirme por mail</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/eleana-africani/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Eleana Africani — Analista de Datos · Hecho con datos, café y bastante Power Query.
+</footer>
+
+</body>
+</html>
