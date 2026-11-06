@@ -1,9 +1,14 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eleana Africani — Analista de Datos</title>
+<title>Eleana Africani — Datos, Desarrollo e IA aplicada</title>
+<meta name="description" content="Portfolio de Eleana Africani: análisis de datos con SQL y Power BI, y desarrollo de aplicaciones completas con React, Firebase e IA. Incluye MiAgroData, una app propia para gestión de rodeos ganaderos.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Eleana Africani — Datos, Desarrollo e IA aplicada">
+<meta property="og:description" content="Análisis de datos (SQL, Power BI) y desarrollo full stack con IA. Mirá MiAgroData y otros proyectos.">
+<meta property="og:url" content="https://eleanaafricani.vercel.app/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -34,6 +39,7 @@
   }
   .wrap{max-width:1040px; margin:0 auto; padding:0 28px;}
   a{color:inherit;}
+  a:focus-visible, .btn:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
 
   /* ---------- NAV ---------- */
   header{
@@ -99,7 +105,7 @@
     font-style:italic; font-weight:500; color:var(--green);
   }
   .hero p.lede{
-    margin-top:24px; max-width:560px; font-size:1.08rem; color:var(--ink);
+    margin-top:24px; max-width:600px; font-size:1.08rem; color:var(--ink);
     opacity:0.85;
   }
   .hero-cta{
@@ -148,8 +154,10 @@
   .about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:start;}
   @media (max-width:760px){ .about-grid{grid-template-columns:1fr;} }
   .about-grid p{margin-bottom:16px; color:var(--ink); opacity:0.88;}
+  .about-title{margin-bottom:20px;}
   .skillbox{background:var(--paper-card); border:1px solid var(--line); border-radius:var(--radius); padding:24px;}
   .skillbox h3{font-family:'IBM Plex Mono', monospace; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--muted); margin-bottom:14px;}
+  .skillbox h3:not(:first-child){margin-top:22px;}
   .chips{display:flex; flex-wrap:wrap; gap:8px;}
   .chip{
     font-size:0.8rem; padding:6px 12px; border-radius:20px;
@@ -161,6 +169,12 @@
   #proyectos{background:var(--ink); color:var(--paper);}
   #proyectos .kicker{color:var(--gold);}
   #proyectos .section-head p{color:rgba(237,238,223,0.7); margin-top:10px;}
+  .group-label{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
+    letter-spacing:0.1em; text-transform:uppercase;
+    color:rgba(237,238,223,0.6); margin:8px 0 14px;
+  }
+  .group-label.second{margin-top:56px;}
   .project{
     display:grid; grid-template-columns:100px 1fr; gap:32px;
     padding:36px 0; border-top:1px solid rgba(237,238,223,0.14);
@@ -177,7 +191,10 @@
   .project h3{
     font-family:'Fraunces', serif; font-weight:600; font-size:1.4rem; margin-bottom:10px;
   }
-  .project p{color:rgba(237,238,223,0.78); margin-bottom:16px; max-width:600px;}
+  .project .role{
+    font-size:0.9rem; color:var(--gold); margin:-2px 0 14px;
+  }
+  .project p{color:rgba(237,238,223,0.78); margin-bottom:16px; max-width:640px;}
   .project .stack{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px;}
   .project .stack span{
     font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
@@ -192,9 +209,21 @@
     font-size:0.85rem; font-weight:600; color:var(--paper);
     text-decoration:none; border-bottom:1px solid var(--gold); padding-bottom:2px;
   }
-  .project.progress{opacity:0.6;}
-  .project.progress .stamp{color:rgba(237,238,223,0.5); border-color:rgba(237,238,223,0.25);}
-  .project.progress p{font-style:italic;}
+
+  /* Proyecto destacado */
+  .project.featured{
+    background:rgba(237,238,223,0.05);
+    border:1px solid rgba(185,139,42,0.45);
+    border-radius:var(--radius);
+    padding:36px 32px;
+  }
+  .project.featured h3{font-size:1.65rem;}
+  .project.featured p{color:rgba(237,238,223,0.88);}
+  .project.featured a.projlink{
+    background:var(--gold); color:var(--ink); border-bottom:none;
+    padding:10px 18px; border-radius:var(--radius);
+  }
+  @media (max-width:700px){ .project.featured{padding:28px 20px;} }
 
   /* ---------- FORMACION ---------- */
   .timeline{border-left:2px solid var(--green); margin-left:6px; padding-left:28px; display:flex; flex-direction:column; gap:22px;}
@@ -205,6 +234,7 @@
   /* ---------- CONTACT ---------- */
   #contacto{background:var(--paper-card); border-top:1px solid var(--line);}
   .contact-inner{text-align:left; max-width:640px;}
+  .contact-inner .intro{margin-top:16px; opacity:0.85; max-width:560px;}
   .contact-links{display:flex; gap:16px; flex-wrap:wrap; margin-top:28px;}
 
   footer{
@@ -223,7 +253,7 @@
       <li><a href="#proyectos">Proyectos</a></li>
       <li><a href="#formacion">Formación</a></li>
       <li><a href="#contacto">Contacto</a></li>
-      <li><a href="https://drive.google.com/file/d/19eX4-Kw0NVNzIA5h7l9Znw3jFd38hehh/view?usp=sharing" target="_blank">Mi CV</a></li>
+      <li><a href="https://drive.google.com/file/d/19eX4-Kw0NVNzIA5h7l9Znw3jFd38hehh/view?usp=sharing" target="_blank" rel="noopener">Mi CV</a></li>
     </ul>
   </nav>
 </header>
@@ -232,17 +262,17 @@
   <div class="field-grid"></div>
   <div class="scan-line"></div>
   <div class="wrap hero-inner">
-    <div class="eyebrow">Analista de Datos Jr · Business Intelligence</div>
-    <h1>Convierto datos crudos en <em>decisiones claras</em>.</h1>
-    <p class="lede">Trabajo con Excel, SQL y Power BI para limpiar, modelar y visualizar información — y estoy sumando Python e IA para que esos datos se puedan consultar en lenguaje natural.</p>
+    <div class="eyebrow">Datos · Desarrollo · IA aplicada</div>
+    <h1>Convierto datos en decisiones, y decisiones en <em>productos que funcionan</em>.</h1>
+    <p class="lede">Analizo datos con Excel, SQL y Power BI, y construyo aplicaciones completas con React, Firebase e IA. Diseño, desarrollo y lanzo de punta a punta.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
       <a class="btn btn-ghost" href="#contacto">Contactarme</a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><div class="num">05</div><div class="label">Proyectos de BI end-to-end</div></div>
-      <div class="stat"><div class="num">02</div><div class="label">Asistente de IA integrado a un dashboard</div></div>
-      <div class="stat"><div class="num">2025</div><div class="label">Formación en Data Analyst — Coderhouse</div></div>
+      <div class="stat"><div class="num">05</div><div class="label">Proyectos en el portfolio</div></div>
+      <div class="stat"><div class="num">02</div><div class="label">Asistentes de IA conectados a datos</div></div>
+      <div class="stat"><div class="num">01</div><div class="label">App propia online y en uso</div></div>
     </div>
   </div>
 </section>
@@ -251,25 +281,34 @@
   <div class="wrap about-grid">
     <div>
       <div class="kicker">Sobre mí</div>
-      <h2 style="margin-bottom:20px;">De la limpieza de datos al dashboard que se entiende de un vistazo</h2>
-      <p>Soy Analista de Datos Jr. con foco en el análisis, validación y transformación de información para generar reportes e indicadores de gestión clave. Aprendí a ordenar datos donde nadie lo había hecho antes: planillas sueltas, fuentes inconexas, información valiosa pero inaccesible — y convertí ese caos en tableros que cualquiera puede leer en segundos.</p>
-      <p>Ese mismo proceso lo apliqué ya en sectores tan distintos como agro, banca, retail y ganadería. Esa versatilidad es mi fuerte: no me caso con una industria, me caso con la lógica de los datos — y eso significa que puedo sumarme a cualquier equipo y encontrarle la vuelta rápido.</p>
-      <p>Además, exploro cómo la inteligencia artificial puede hacer que la información sea aún más accesible — por eso integré un asistente conversacional a uno de mis proyectos, para que cualquier persona pueda "preguntarle" al negocio en lenguaje natural.</p>
-      <p><strong>¿El resultado? Cinco proyectos, tres sectores, un mismo compromiso: convertir datos en decisiones.</strong></p>
-      <p><strong>Te invito a verlos abajo👇</strong></p>
-
+      <h2 class="about-title">De la limpieza de datos a la app que se usa en el campo</h2>
+      <p>Soy Analista de Datos Jr. y desarrolladora full stack. Me enfoco en ordenar, validar y transformar información para generar reportes e indicadores de gestión, y también en construir las herramientas donde esa información se carga y se consulta. Aprendí a ordenar datos donde nadie lo había hecho antes: planillas sueltas, fuentes inconexas, información valiosa pero inaccesible.</p>
+      <p>Apliqué ese proceso en sectores tan distintos como agro, banca, retail y ganadería. Esa versatilidad es mi fuerte: no me caso con una industria, me caso con la lógica de los datos, y eso me permite sumarme a un equipo y encontrarle la vuelta rápido.</p>
+      <p>MiAgroData es mi proyecto más completo: una app propia que diseñé, programé y puse online, y que hoy usan productores. La sigo mejorando de forma constante a partir de su uso.</p>
+      <p>Trabajo con IA como parte de mi flujo diario: la uso para acelerar el desarrollo y el análisis, y pongo el criterio, la lógica de negocio y la revisión de cada decisión. También la integré como producto, con asistentes conversacionales que responden consultas sobre los datos del negocio.</p>
+      <p><strong>Cinco proyectos, cuatro sectores, un mismo compromiso: convertir datos en decisiones. Los podés ver abajo 👇</strong></p>
     </div>
     <div class="skillbox">
-      <h3>Herramientas</h3>
+      <h3>Datos</h3>
       <div class="chips">
         <span class="chip">Excel avanzado</span>
         <span class="chip">SQL</span>
         <span class="chip">Power BI (DAX)</span>
         <span class="chip">Power Query</span>
+        <span class="chip">Looker Studio</span>
+      </div>
+      <h3>Desarrollo</h3>
+      <div class="chips">
+        <span class="chip">React</span>
+        <span class="chip">PWA</span>
+        <span class="chip">Firebase</span>
         <span class="chip">Python</span>
         <span class="chip">Streamlit</span>
-        <span class="chip">APIs de IA (Groq / Llama)</span>
-        <span class="chip">Looker Studio</span>
+      </div>
+      <h3>IA</h3>
+      <div class="chips">
+        <span class="chip">Gemini / Firebase AI Logic</span>
+        <span class="chip">Groq / Llama</span>
       </div>
     </div>
   </div>
@@ -279,44 +318,49 @@
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">Proyectos</div>
-      <h2>Cinco casos, tres sectores, un mismo proceso</h2>
-      <p>Cada proyecto sigue el mismo recorrido: entender el problema, limpiar y modelar los datos, y construir algo que una persona no técnica pueda usar para decidir.</p>
+      <h2>Una app propia y cuatro proyectos de análisis</h2>
+      <p>En todos el recorrido es el mismo: entender el problema, ordenar los datos y construir algo que una persona no técnica pueda usar para decidir.</p>
     </div>
 
-    <div class="project">
-      <div class="stamp">🌱Agro</div>
-      <div>
-        <h3>Optimización y rendimiento de la soja</h3>
-        <div class="mini-chart">
-          <i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:85%"></i><i style="height:60%"></i><i style="height:95%"></i>
-        </div>
-        <p>Proyecto de Business Intelligence para el sector agrícola: limpié, validé y normalicé datos de rendimiento productivo provenientes de distintas fuentes, construí un modelo de datos en Power BI y analicé desvíos en las variables de producción para estandarizar la información y mejorar la confiabilidad de los análisis.</p>
-        <div class="stack"><span>Excel</span><span>Power Query</span><span>Power BI</span></div>
-        <a class="projlink" href="https://drive.google.com/drive/folders/1bMo-YcQD8QaAHRa6J4oVogehz2bWhCvR?usp=drive_link" target="_blank" rel="noopener">Ver proyecto →</a>
-      </div>
-    </div>
+    <div class="group-label">Proyecto destacado</div>
 
-<div class="project">
+    <div class="project featured">
       <div class="stamp">🌾AgroTech</div>
       <div>
-        <h3>MiAgroData — Gestión Inteligente de Rodeos Ganaderos</h3>
-        <div class="role">Fundador y Desarrollador Full Stack · En uso y en desarrollo continuo</div>
-        <p>PWA web y móvil para llevar el manejo diario del rodeo desde el celular, incluso en el campo y sin señal. Online, en uso por productores reales y en evolución constante.<br><br>
-Reemplaza planillas y cuadernos con un sistema que centraliza fichas de animales, seguimiento reproductivo con cálculo automático de fechas de parto, sanidad, ventas y estadísticas. Es offline-first: funciona sin conexión y sincroniza a la nube cuando hay internet, con backups diarios automáticos.<br><br>
-Incluye un asistente conversacional híbrido: resuelve las consultas frecuentes con reglas propias (rápido y sin costo de IA) y deriva las preguntas abiertas a Gemini, pasándole el contexto real de los datos del usuario para respuestas precisas.<br><br>
-Diseño UX/UI, arquitectura, desarrollo frontend y backend, lógica de negocio ganadera, despliegue y mantenimiento, todo en solitario.</p>
+        <h3>MiAgroData: gestión inteligente de rodeos ganaderos</h3>
+        <div class="role">Fundadora y desarrolladora full stack · Online, en uso y en desarrollo continuo</div>
+        <p>App web y móvil (PWA) para llevar el manejo diario del rodeo desde el celular, incluso en el campo y sin señal. Reemplaza planillas y cuadernos con un sistema que centraliza fichas de animales, seguimiento reproductivo con cálculo automático de fechas de parto, sanidad, ventas y estadísticas.</p>
+        <p>Es offline-first: funciona sin conexión a internet y sincroniza a la nube cuando hay señal, con backups diarios automáticos.</p>
+        <p>Incluye un asistente conversacional híbrido: resuelve las consultas frecuentes con reglas propias y deriva las preguntas más abiertas a Gemini (Firebase AI Logic), pasándole el contexto real de los datos del usuario para respuestas precisas.</p>
+        <p>Diseño UX/UI, arquitectura, desarrollo frontend y backend, lógica de negocio ganadera, despliegue y mantenimiento, todo en solitario.</p>
+        <!-- Ideal: agregar acá una captura o GIF corto de la app -->
         <div class="stack"><span>React</span><span>PWA</span><span>Firebase Auth</span><span>Firestore offline</span><span>App Check</span><span>Gemini / Firebase AI Logic</span><span>Vercel</span><span>GitHub</span></div>
         <a class="projlink" href="https://www.miagrodata.com.ar" target="_blank" rel="noopener">Abrir la app →</a>
       </div>
     </div>
 
-        <div class="project">
+    <div class="group-label second">Análisis de datos</div>
+
+    <div class="project">
       <div class="stamp">🏦Banca</div>
       <div>
         <h3>Banco Austral — Análisis de Riesgo y Control de Mora</h3>
         <p>Análisis integral de la cartera de préstamos personales ($19.457M ARS). Proyecto end-to-end desde el procesamiento, limpieza y profiling en SQL Server (T-SQL), hasta el modelado dimensional, cálculo de KPIs en DAX y diseño de un dashboard interactivo en Power BI, complementado con un informe ejecutivo para la Gerencia de Riesgo Crediticio.</p>
         <div class="stack"><span>SQL Server</span><span>Power BI · DAX</span><span>T-SQL</span><span>Power Query</span></div>
         <a class="projlink" href="https://drive.google.com/drive/folders/12m012SfdG5ybADEdzn43KKt-IzGPcFnv?usp=drive_link" target="_blank" rel="noopener">Ver proyecto →</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="stamp">🛒Retail + IA</div>
+      <div>
+        <h3>Análisis comercial con asistente de IA integrado</h3>
+        <div class="mini-chart">
+          <i style="height:30%"></i><i style="height:50%"></i><i style="height:80%"></i><i style="height:65%"></i><i style="height:95%"></i><i style="height:88%"></i>
+        </div>
+        <p>Solución analítica de punta a punta sobre un escenario de simulación de retail. Limpié y migré un dataset comercial crudo a una base en SQL Server, diseñé un modelo estrella (star schema) para optimizar las consultas, y construí un tablero en Power BI con métricas DAX avanzadas para márgenes, rendimiento por región y performance de canales. Como cierre, desplegué una app en Python con Streamlit que integra un asistente virtual (API de Groq / Llama 3.1) para consultar las métricas del negocio en lenguaje natural.</p>
+        <div class="stack"><span>SQL Server</span><span>Power BI · DAX</span><span>Python</span><span>Streamlit</span><span>Groq / Llama 3.1</span></div>
+        <a class="projlink" href="https://drive.google.com/drive/folders/1xd4Zp4LvZje0I2PoktWyJpKCAHaR0fwo?usp=drive_link" target="_blank" rel="noopener">Ver proyecto →</a>
       </div>
     </div>
 
@@ -334,15 +378,15 @@ Diseño UX/UI, arquitectura, desarrollo frontend y backend, lógica de negocio g
     </div>
 
     <div class="project">
-      <div class="stamp">🛒Retail + IA</div>
+      <div class="stamp">🌱Agro</div>
       <div>
-        <h3>Análisis comercial con asistente de IA integrado</h3>
+        <h3>Optimización y rendimiento de la soja</h3>
         <div class="mini-chart">
-          <i style="height:30%"></i><i style="height:50%"></i><i style="height:80%"></i><i style="height:65%"></i><i style="height:95%"></i><i style="height:88%"></i>
+          <i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:85%"></i><i style="height:60%"></i><i style="height:95%"></i>
         </div>
-        <p>Solución analítica de punta a punta sobre un escenario de simulación de retail. Limpié y migré un dataset comercial crudo a una base en SQL Server, diseñé un modelo estrella (star schema) para optimizar las consultas, y construí un tablero en Power BI con métricas DAX avanzadas para márgenes, rendimiento por región y performance de canales. Como cierre, desplegué una app en Python con Streamlit que integra un asistente virtual (API de Groq / Llama 3.1) para consultar las métricas del negocio en lenguaje natural.</p>
-        <div class="stack"><span>SQL Server</span><span>Power BI · DAX</span><span>Python</span><span>Streamlit</span><span>Groq / Llama 3.1</span></div>
-        <a class="projlink" href="https://drive.google.com/drive/folders/1xd4Zp4LvZje0I2PoktWyJpKCAHaR0fwo?usp=drive_link" target="_blank" rel="noopener">Ver proyecto →</a>
+        <p>Proyecto de Business Intelligence para el sector agrícola: limpié, validé y normalicé datos de rendimiento productivo provenientes de distintas fuentes, construí un modelo de datos en Power BI y analicé desvíos en las variables de producción para estandarizar la información y mejorar la confiabilidad de los análisis.</p>
+        <div class="stack"><span>Excel</span><span>Power Query</span><span>Power BI</span></div>
+        <a class="projlink" href="https://drive.google.com/drive/folders/1bMo-YcQD8QaAHRa6J4oVogehz2bWhCvR?usp=drive_link" target="_blank" rel="noopener">Ver proyecto →</a>
       </div>
     </div>
 
@@ -370,7 +414,7 @@ Diseño UX/UI, arquitectura, desarrollo frontend y backend, lógica de negocio g
         <div class="when">2015</div>
         <div class="what">Profesorado de Nivel Inicial</div>
         <div class="who">Instituto de Formación Docente</div>
-      </div>  
+      </div>
       <div class="tl-item">
         <div class="when">2007</div>
         <div class="what">Bachiller en Ciencias Económicas y Gestión</div>
@@ -383,10 +427,10 @@ Diseño UX/UI, arquitectura, desarrollo frontend y backend, lógica de negocio g
 <section id="contacto">
   <div class="wrap contact-inner">
     <div class="kicker">Contacto</div>
-    <h2>Hablemos de datos</h2>
-    <p style="margin-top:16px; opacity:0.85; max-width:520px;">Transformo volúmenes de datos e información en soluciones visuales y decisiones estratégicas. Estoy disponible para sumarme a nuevos desafíos profesionales o colaborar en proyectos de análisis de datos. ¡Hablemos!</p>
+    <h2>Hablemos</h2>
+    <p class="intro">Estoy abierta a nuevas oportunidades en análisis de datos, desarrollo y proyectos con IA, y a colaborar en proyectos propios o de otros. Escribime por el canal que prefieras.</p>
     <div class="contact-links">
-      <a href="https://wa.me/5492236819372" target="_blank" style="display: inline-block; padding: 10px 20px; border: 1px solid #1a2e22; color: #1a2e22; text-decoration: none; border-radius: 4px; font-weight: bold;">Escribime por WhatsApp</a>
+      <a class="btn btn-ghost" href="https://wa.me/5492236819372" target="_blank" rel="noopener">Escribime por WhatsApp</a>
       <a class="btn btn-primary" href="mailto:africanieleana@gmail.com">Escribirme por mail</a>
       <a class="btn btn-ghost" href="https://linkedin.com/in/eleana-africani/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
@@ -394,7 +438,7 @@ Diseño UX/UI, arquitectura, desarrollo frontend y backend, lógica de negocio g
 </section>
 
 <footer>
-  Eleana Africani — Analista de Datos · Hecho con datos, café y bastante Power Query.  
+  Eleana Africani — Datos, Desarrollo e IA aplicada · Hecho con datos, café y bastante Power Query.
 </footer>
 
 <script defer src="/_vercel/insights/script.js"></script>
